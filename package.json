@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "ava src/**/*.test.js",
+    "start": "npm test -- -w"
+  },
+  "dependencies": {
+    "@babel/register": "^7.0.0-beta.40",
+    "ava": "^1.0.0-beta.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "eslint": "^4.18.1",
+    "eslint-config-vi": "^8.5.0"
+  },
+  "ava": {
+    "require": [
+      "@babel/register"
+    ]
+  }
+}
