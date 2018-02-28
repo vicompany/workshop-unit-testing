@@ -1,5 +1,5 @@
-import Coupon from './coupon';
-import Product from './product';
+import Coupon from './models/coupon';
+import Product from './models/product';
 
 export default class ShoppingCart {
 	constructor() {
