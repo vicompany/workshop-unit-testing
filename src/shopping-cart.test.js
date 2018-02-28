@@ -1,4 +1,5 @@
 import test from 'ava';
+import sinon from 'sinon';
 
 import Coupon from './models/coupon';
 import Product from './models/product';
@@ -47,18 +48,23 @@ test('ShoppingCart.reset', (t) => {
 	t.is(cart.products.length, 0);
 });
 
-test('ShoppingCart.totalPrice', (t) => {
+test('ShoppingCart.getTotalPrice', (t) => {
+	const spyDiscount = sinon.spy(cart, 'getDiscount');
+	const spyProductSum = sinon.spy(cart, 'getProductSum');
+
 	cart.addProduct(new Product('foo', 2));
 	cart.addProduct(new Product('bar', 3));
 
 	t.is(cart.getTotalPrice(), 5 + ShoppingCart.SHIPPING_COSTS);
+	t.true(spyDiscount.calledOnce);
+	t.true(spyProductSum.calledOnce);
 });
 
-test('ShoppingCart.totalPrice without products', (t) => {
+test('ShoppingCart.getTotalPrice without products', (t) => {
 	t.is(cart.getTotalPrice(), 0);
 });
 
-test('ShoppingCart.totalPrice with coupons', (t) => {
+test('ShoppingCart.getTotalPrice with coupons', (t) => {
 	cart.addProduct(new Product('foo', 10));
 	cart.addProduct(new Product('bar', 20));
 	cart.addCoupon(new Coupon('abc', 0.1));
@@ -67,7 +73,7 @@ test('ShoppingCart.totalPrice with coupons', (t) => {
 	t.is(cart.getTotalPrice(), 24.3);
 });
 
-test('ShoppingCart.totalPrice with coupons without shipping', (t) => {
+test('ShoppingCart.getTotalPrice with coupons without shipping', (t) => {
 	cart.addProduct(new Product('foo', 10));
 	cart.addProduct(new Product('bar', 20));
 	cart.addCoupon(new Coupon('abc', 0.5));

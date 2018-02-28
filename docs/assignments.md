@@ -38,6 +38,10 @@ Sometimes a method changes the state of it's object. Make sure that these change
 1. Write a test to see if the cart was reset
 2. Write a reset method
 
+## Task: Test `ShoppingCart.getTotalPrice` internals
+
+1. The method ShoppingCart.getTotalPrice executes several other methods, make sure these are called using a spy (using [Sinon.JS](http://sinonjs.org/))
+
 ## Bug: After emptying the cart, I still have to pay shipping costs
 
 When dealing with bugs, it can be useful to write tests first so while you're changing the code, the test script verifies your changes.
