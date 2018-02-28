@@ -7,19 +7,29 @@
 
 Pro tip: always keep an eye on the console! 👀
 
-## Write unit tests for the Coupon and Product models
+## Task: Write unit tests for the Coupon and Product models
 
 Because the models do not have methods, testing the constructor and properties will suffice.
 
 1. Write unit tests in `src/models/coupon.test.js`
 1. Write unit tests in `src/models/product.test.js`
 
-## Complete the unit tests for ShoppingCart
+## Task: Complete the unit tests for ShoppingCart
 
 When testing methods, it's important to test the effect of various arguments and the method return.
 
 1. Write unit tests for `ShoppingCart.getProductSum()`. Note that the shopping cart needs products for this method to work.
 2. Write unit tests for `ShoppingCart.getDiscount(price)`. Note that the shopping cart needs coupons for this method to work.
+
+## Task: Clean up repetitive code
+
+The following code is repeated for every tests:
+
+```js
+const cart = new ShoppingCart();
+```
+
+Find whether this can be repeated in a DRY manner.
 
 ## As a user, I want to reset my cart
 

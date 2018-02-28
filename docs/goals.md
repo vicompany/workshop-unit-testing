@@ -1,7 +1,7 @@
 # Goals
 
 - [x] Unit test basics
-- [ ] Setup & teardown
+- [x] Setup & teardown
 - [ ] Spies & mocking
 - [ ] What not to test
 - [x] Fixing bugs with unit tests
