@@ -14,7 +14,7 @@ Because the models do not have methods, testing the constructor and properties w
 1. Write unit tests in `src/models/coupon.test.js`
 1. Write unit tests in `src/models/product.test.js`
 
-## Compelte the unit tests for ShoppingCart
+## Complete the unit tests for ShoppingCart
 
 When testing methods, it's important to test the effect of various arguments and the method return.
 
