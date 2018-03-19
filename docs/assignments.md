@@ -4,6 +4,8 @@ This document contains all assignments. Before writing code, we have to run the 
 
 Run `npm start` to start the watcher.
 
+Be sure to run `npm test:coverage` sometimes to check whether code coverage is 100%, give or take.
+
 Tips and links:
 
 - Always keep an eye out for errors in the console! 👀

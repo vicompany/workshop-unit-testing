@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "test": "ava src/**/*.test.js",
+    "test:coverage": "nyc npm test",
     "start": "npm test -- -w"
   },
   "dependencies": {
@@ -17,5 +18,8 @@
     "require": [
       "@babel/register"
     ]
+  },
+  "devDependencies": {
+    "nyc": "^11.6.0"
   }
 }

@@ -5,21 +5,15 @@ import Coupon from './models/coupon';
 import Product from './models/product';
 import ShoppingCart from './shopping-cart';
 
-let cart;
-
-test.beforeEach((t) => {
-	cart = new ShoppingCart();
-});
-
-test.afterEach((t) => {
-	cart = null;
-});
-
 test('ShoppingCart.constructor', (t) => {
+	const cart = new ShoppingCart();
+
 	t.true(Array.isArray(cart.products));
 });
 
 test('ShoppingCart.addCoupon', (t) => {
+	const cart = new ShoppingCart();
+
 	t.throws(() => cart.addCoupon(123));
 
 	cart.addCoupon(new Coupon('foo', 0.5));
@@ -29,6 +23,8 @@ test('ShoppingCart.addCoupon', (t) => {
 });
 
 test('ShoppingCart.addProduct', (t) => {
+	const cart = new ShoppingCart();
+
 	t.throws(() => cart.addProduct(123));
 
 	cart.addProduct(new Product('foo', 123));
@@ -37,18 +33,8 @@ test('ShoppingCart.addProduct', (t) => {
 	t.is(cart.products.length, 2);
 });
 
-test('ShoppingCart.reset', (t) => {
-	cart.addProduct(new Product('foo', 10));
-	cart.addProduct(new Product('bar', 20));
-	cart.addCoupon(new Coupon('abc', 0.5));
-	cart.addCoupon(new Coupon('abc', 0.5));
-	cart.reset();
-
-	t.is(cart.coupons.length, 0);
-	t.is(cart.products.length, 0);
-});
-
 test('ShoppingCart.getTotalPrice', (t) => {
+	const cart = new ShoppingCart();
 	const spyDiscount = sinon.spy(cart, 'getDiscount');
 	const spyProductSum = sinon.spy(cart, 'getProductSum');
 
@@ -60,24 +46,13 @@ test('ShoppingCart.getTotalPrice', (t) => {
 	t.true(spyProductSum.calledOnce);
 });
 
-test('ShoppingCart.getTotalPrice without products', (t) => {
-	t.is(cart.getTotalPrice(), 0);
-});
-
 test('ShoppingCart.getTotalPrice with coupons', (t) => {
+	const cart = new ShoppingCart();
+
 	cart.addProduct(new Product('foo', 10));
 	cart.addProduct(new Product('bar', 20));
 	cart.addCoupon(new Coupon('abc', 0.1));
 	cart.addCoupon(new Coupon('abc', 0.1));
 
 	t.is(cart.getTotalPrice(), 24.3);
-});
-
-test('ShoppingCart.getTotalPrice with coupons without shipping', (t) => {
-	cart.addProduct(new Product('foo', 10));
-	cart.addProduct(new Product('bar', 20));
-	cart.addCoupon(new Coupon('abc', 0.5));
-	cart.addCoupon(new Coupon('abc', 0.5));
-
-	t.is(cart.getTotalPrice(), 7.5);
 });

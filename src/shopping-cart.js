@@ -33,22 +33,13 @@ export default class ShoppingCart {
 	}
 
 	getTotalPrice() {
-		if (this.products.length === 0) {
-			return 0;
-		}
-
-		const productSum = this.getProductSum();
+		const productSum = this.getDiscount(this.getProductSum());
 
 		if (productSum >= ShoppingCart.SHIPPING_MAX_PRICE) {
-			return this.getDiscount(productSum);
+			return productSum;
 		}
 
-		return this.getDiscount(productSum + ShoppingCart.SHIPPING_COSTS);
-	}
-
-	reset() {
-		this.coupons.length = 0;
-		this.products.length = 0;
+		return productSum + ShoppingCart.SHIPPING_COSTS;
 	}
 
 	static get SHIPPING_COSTS() {
