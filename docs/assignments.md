@@ -101,3 +101,7 @@ The shipping costs should be calculated before applying the discount, resulting 
 
 1. Write a test for this use-case
 2. Fix the bug
+
+---
+
+[Go back to README](/README.md)

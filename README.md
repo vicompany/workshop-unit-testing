@@ -14,7 +14,6 @@ This is the front-end unit testing workshop to get started with unit testing thr
 
 - You are familiar with JavaScript (ES2017+)
 - [Node.js and npm](https://nodejs.org/)
-- An understanding why unit testing is useful ([Watch “Why unit testing?” by Mattias Petter Johansson](https://www.youtube.com/watch?v=Eu35xM76kKY))
 
 ## Getting started
 
@@ -33,6 +32,10 @@ npm install
 
 That is all!
 
+## Introduction
+
+Go to the [introduction](docs/introduction.md).
+
 ## Assignments
 
-Go to the [assigments](docs/assignments.md).
+Go to the [assignments](docs/assignments.md).
