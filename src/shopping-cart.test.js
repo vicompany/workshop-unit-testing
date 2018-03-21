@@ -1,5 +1,5 @@
 import test from 'ava';
-import sinon from 'sinon';
+// import sinon from 'sinon';
 
 import Coupon from './models/coupon';
 import Product from './models/product';
@@ -35,15 +35,11 @@ test('ShoppingCart.addProduct', (t) => {
 
 test('ShoppingCart.getTotalPrice', (t) => {
 	const cart = new ShoppingCart();
-	const spyDiscount = sinon.spy(cart, 'getDiscount');
-	const spyProductSum = sinon.spy(cart, 'getProductSum');
 
 	cart.addProduct(new Product('foo', 2));
 	cart.addProduct(new Product('bar', 3));
 
 	t.is(cart.getTotalPrice(), 5 + ShoppingCart.SHIPPING_COSTS);
-	t.true(spyDiscount.calledOnce);
-	t.true(spyProductSum.calledOnce);
 });
 
 test('ShoppingCart.getTotalPrice with coupons', (t) => {
