@@ -86,7 +86,7 @@ Sometimes a method changes the state of it’s object. Make sure that these chan
   </ul>
 </details>
 
-## Bug: After emptying the cart, I still have to pay shipping costs
+## Bug: With an empty cart, I have to pay shipping costs
 
 When dealing with bugs, it can be useful to write tests first so while you’re changing the code, the test script verifies your changes.
 
