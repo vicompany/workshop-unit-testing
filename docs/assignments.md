@@ -36,7 +36,7 @@ Because the Coupon and Product models do not have methods, testing the construct
 When testing methods, it is important to test the effect of various arguments and the method’s return value.
 
 1. Write unit tests for `ShoppingCart.getProductSum()`. Note that the shopping cart needs products for this method to work.
-2. Write unit tests for `ShoppingCart.getDiscount(price)`. Note that the shopping cart needs coupons for this method to work.
+2. Write unit tests for `ShoppingCart.getDiscountPrice(price)`. Note that the shopping cart needs coupons for this method to work.
 
 ## Clean up repetitive code
 

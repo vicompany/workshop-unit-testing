@@ -27,13 +27,13 @@ export default class ShoppingCart {
 		return this.products.reduce((sum, product) => sum + product.price, 0);
 	}
 
-	getDiscount(price) {
+	getDiscountPrice(price) {
 		return this.coupons
 			.reduce((sum, coupon) => sum - (sum * coupon.discount), price);
 	}
 
 	getTotalPrice() {
-		const productSum = this.getDiscount(this.getProductSum());
+		const productSum = this.getDiscountPrice(this.getProductSum());
 
 		if (productSum >= ShoppingCart.SHIPPING_MAX_PRICE) {
 			return productSum;
